@@ -4,5 +4,6 @@ namespace CodeBase.Screens.Gallery
 {
     public interface IGalleryPresenter : IPresenter
     {
+        void Back();
     }
 }

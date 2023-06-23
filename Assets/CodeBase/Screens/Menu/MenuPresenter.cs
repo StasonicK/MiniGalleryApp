@@ -6,6 +6,6 @@ namespace CodeBase.Screens.Menu
     public class MenuPresenter : IPresenter, IMenuPresenter
     {
         public void LaunchGalleryScreen() =>
-            SceneManager.LoadSceneAsync(Constants.GALLERY_SCENE);
+            SceneManager.LoadSceneAsync(Constants.GalleryScene);
     }
 }
