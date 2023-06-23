@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CodeBase.Screens
+namespace CodeBase.Screens.Common
 {
     public class OrientationSetter : MonoBehaviour
     {
