@@ -1,19 +1,35 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CodeBase.Screens.Menu
 {
     public class MenuScreen : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        [SerializeField] private Button _toGalleryButton;
         
+        private const string URL = "http://data.ikppbb.com/test-task-unity-data/pics/";
+        
+     private   void OnEnable()
+        {
+        _toGalleryButton.onClick.AddListener(ToGalleryScreen);
+        }
+        
+     private   void OnDisable()
+        {
+        _toGalleryButton.onClick.RemoveListener(ToGalleryScreen);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+     private void ToGalleryScreen()
+     {
+         StartCoroutine(DownloadImages());
+     }
+
+     private IEnumerator DownloadImages()
+     {
+         
+         
+         yield return null;
+     }
     }
 }
