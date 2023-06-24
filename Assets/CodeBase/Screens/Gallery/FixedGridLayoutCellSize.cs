@@ -10,24 +10,24 @@ namespace CodeBase.Screens.Gallery
         [SerializeField] private int _columnsCount;
 
         private const float AdditionalWidth = 20f;
-        
+
         private RectTransform _rectTransform;
         private GridLayoutGroup _gridLayoutGroup;
         private float _verticalScrollWidth;
 
-        private void Awake()
+        private void Start()
         {
             _verticalScrollWidth = _verticalScrollContainer.GetComponent<RectTransform>().rect.width;
+            float width = _imagesContainer.GetComponent<RectTransform>().rect.width;
+            float itemWidth = ((width
+                    // - _verticalScrollWidth
+                ) / _columnsCount);
+            Vector2 newSize = new Vector2(itemWidth, itemWidth);
+            _imagesContainer.GetComponent<GridLayoutGroup>().cellSize = newSize;
         }
 
         private void Update()
         {
-            float width = _imagesContainer.GetComponent<RectTransform>().rect.width;
-            float itemWidth = ((width 
-                                // - _verticalScrollWidth
-                                ) / _columnsCount);
-            Vector2 newSize = new Vector2(itemWidth, itemWidth);
-            _imagesContainer.GetComponent<GridLayoutGroup>().cellSize = newSize;
         }
     }
 }
