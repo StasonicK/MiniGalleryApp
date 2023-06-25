@@ -1,14 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace CodeBase.Screens.Gallery
 {
-    public class GalleryScreen : MonoBehaviour
+    public class GalleryGrid : MonoBehaviour
     {
-        [SerializeField] private Button _backButton;
         [SerializeField] private ScrollRect _scrollRect;
         [SerializeField] private RectTransform _imagesContainer;
         [SerializeField] private ImageItem _imageItemPrefab;
@@ -22,11 +20,6 @@ namespace CodeBase.Screens.Gallery
 
         private void Awake()
         {
-            if (Application.platform == RuntimePlatform.Android)
-                _backButton.onClick.AddListener(Back);
-            else
-                _backButton.gameObject.SetActive(false);
-
             DownloadInitialImages();
         }
 
@@ -66,7 +59,7 @@ namespace CodeBase.Screens.Gallery
             imageItem.Construct(texture2D, name);
         }
 
-        public void OnScrollValueChanged()
+        public void OnScrollChanged()
         {
             if (!_isLoadingImageItems && _scrollRect.verticalNormalizedPosition <= _bottomThreshold &&
                 _loadedImageItemsCount < DataLength)
@@ -75,8 +68,5 @@ namespace CodeBase.Screens.Gallery
                     DownloadImage(_loadedImageItemsCount + i);
             }
         }
-
-        private void Back() =>
-            SceneManager.LoadSceneAsync(Constants.MenuScene);
     }
 }

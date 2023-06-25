@@ -774,7 +774,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1611914543}
   - component: {fileID: 1611914544}
-  - component: {fileID: 1611914545}
   m_Layer: 0
   m_Name: ScreenLogic
   m_TagString: Untagged
@@ -810,23 +809,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScreenOrientation: 1
---- !u!114 &1611914545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611914540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef2ec147dd53804285d0d2a8568596a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _backButton: {fileID: 210351773}
-  _scrollRect: {fileID: 1955701383}
-  _imagesContainer: {fileID: 2076622854}
-  _imageItemPrefab: {fileID: 1689808318482043495, guid: 76efc795cb26bb3418beef12f24c97fb, type: 3}
-  _bottomThreshold: 0.1
 --- !u!1 &1721389293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1040,7 @@ GameObject:
   - component: {fileID: 1955701385}
   - component: {fileID: 1955701384}
   - component: {fileID: 1955701383}
+  - component: {fileID: 1955701386}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -1102,14 +1085,14 @@ MonoBehaviour:
   m_Content: {fileID: 2076622854}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 0
-  m_Elasticity: 0
+  m_MovementType: 1
+  m_Elasticity: 0.3
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 1508898219}
   m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 2081953229}
+  m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 2
   m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: -3
@@ -1117,9 +1100,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1611914545}
+      - m_Target: {fileID: 1955701386}
         m_TargetAssemblyTypeName: CodeBase.Screens.Gallery.GalleryScreen, Assembly-CSharp
-        m_MethodName: OnScrollValueChanged
+        m_MethodName: OnScrollChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1167,6 +1150,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955701381}
   m_CullTransparentMesh: 1
+--- !u!114 &1955701386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955701381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef2ec147dd53804285d0d2a8568596a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backButton: {fileID: 210351773}
+  _scrollRect: {fileID: 1955701383}
+  _imagesContainer: {fileID: 2076622854}
+  _imageItemPrefab: {fileID: 1689808318482043495, guid: 76efc795cb26bb3418beef12f24c97fb, type: 3}
+  _bottomThreshold: 0.1
 --- !u!1 &2076622853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,7 +1225,7 @@ MonoBehaviour:
   fitType: 4
   Rows: 1
   Columns: 3
-  CellSize: {x: 341, y: 1728}
+  CellSize: {x: 341, y: 341}
   Spacing: {x: 10, y: 10}
   FitX: 1
   FitY: 0
