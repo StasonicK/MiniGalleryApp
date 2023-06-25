@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace CodeBase.Screens.Menu
@@ -7,18 +8,10 @@ namespace CodeBase.Screens.Menu
     {
         [SerializeField] private Button _toGalleryButton;
 
-        private IMenuPresenter _menuPresenter;
-
         private void Awake() =>
-            _menuPresenter = new MenuPresenter();
-
-        private void OnEnable() =>
             _toGalleryButton.onClick.AddListener(ToGalleryScreen);
 
-        private void OnDisable() =>
-            _toGalleryButton.onClick.RemoveListener(ToGalleryScreen);
-
         private void ToGalleryScreen() =>
-            _menuPresenter.LaunchGalleryScreen();
+            SceneManager.LoadSceneAsync(Constants.GalleryScene);
     }
 }

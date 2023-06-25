@@ -17,7 +17,7 @@ namespace CodeBase.Screens.Gallery
 
         private void Start()
         {
-            _verticalScrollWidth = _verticalScrollContainer.GetComponent<RectTransform>().rect.width;
+            // _verticalScrollWidth = _verticalScrollContainer.GetComponent<RectTransform>().rect.width;
             float width = _imagesContainer.GetComponent<RectTransform>().rect.width;
             float itemWidth = ((width
                     // - _verticalScrollWidth
