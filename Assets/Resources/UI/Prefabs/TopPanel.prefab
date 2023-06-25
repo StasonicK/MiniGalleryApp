@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backButton: {fileID: 7009231846866494447}
+  screenType: 1
 --- !u!1 &7009231846866494441
 GameObject:
   m_ObjectHideFlags: 0
