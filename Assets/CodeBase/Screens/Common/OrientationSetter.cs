@@ -32,7 +32,8 @@ namespace CodeBase.Screens.Common
                     Screen.orientation = UnityEngine.ScreenOrientation.AutoRotation;
 
                     Screen.autorotateToPortrait = Screen.autorotateToPortraitUpsideDown = true;
-                    Screen.autorotateToLandscapeLeft = Screen.autorotateToLandscapeRight = false;
+                    Screen.autorotateToLandscapeLeft =
+                        Screen.autorotateToLandscapeRight = false;
                     break;
 
                 case Orientation.PortraitFixed:

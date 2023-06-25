@@ -1,3 +1,4 @@
+using CodeBase.Screens.Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +13,6 @@ namespace CodeBase.Screens.Menu
             _toGalleryButton.onClick.AddListener(ToGalleryScreen);
 
         private void ToGalleryScreen() =>
-            SceneManager.LoadSceneAsync(Constants.GalleryScene);
+            SceneManager.LoadSceneAsync(ScreenType.Gallery.ToString());
     }
 }

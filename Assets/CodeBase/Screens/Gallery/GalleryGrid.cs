@@ -10,9 +10,8 @@ namespace CodeBase.Screens.Gallery
         [SerializeField] private ScrollRect _scrollRect;
         [SerializeField] private RectTransform _imagesContainer;
         [SerializeField] private ImageItem _imageItemPrefab;
-        [SerializeField] private float _bottomThreshold = 0.2f;
+        [SerializeField] private float _bottomLoadingMargin = 0.2f;
 
-        private const int InitialDataLength = 25;
         private const int DataLength = 66;
 
         private int _loadedImageItemsCount = 0;
@@ -25,7 +24,13 @@ namespace CodeBase.Screens.Gallery
 
         private void DownloadInitialImages()
         {
-            for (int i = 1; i <= InitialDataLength; i++)
+            float scrollHeight = _scrollRect.GetComponent<RectTransform>().rect.height;
+            float imageItemHeight = _imagesContainer.GetComponent<GridLayoutGroup>().cellSize.y;
+            int columns = _imagesContainer.GetComponent<GridLayoutGroup>().constraintCount;
+
+            int visibleImagesLimit = Mathf.CeilToInt((scrollHeight / imageItemHeight) * columns) + 3;
+
+            for (int i = 1; i <= visibleImagesLimit; i++)
                 DownloadImage(i);
         }
 
@@ -35,7 +40,6 @@ namespace CodeBase.Screens.Gallery
             string imageUrl = $"{Constants.URL}{number}{Constants.JpgFormat}";
             _loadedImageItemsCount++;
             StartCoroutine(DownloadImages(imageUrl, number.ToString()));
-            Debug.Log(imageUrl);
             _isDownloading = false;
         }
 
@@ -63,8 +67,8 @@ namespace CodeBase.Screens.Gallery
 
         public void OnScrollChanged()
         {
-            if (!_isDownloading && _scrollRect.verticalNormalizedPosition <= _bottomThreshold &&
-                _loadedImageItemsCount < DataLength)
+            if (!_isDownloading && _loadedImageItemsCount < DataLength &&
+                _scrollRect.verticalNormalizedPosition <= _bottomLoadingMargin)
             {
                 for (int i = 1; i <= 3; i++)
                     DownloadImage(_loadedImageItemsCount + 1);

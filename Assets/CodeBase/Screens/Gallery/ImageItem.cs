@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using CodeBase.Screens.Common;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,11 +12,11 @@ namespace CodeBase.Screens.Gallery
         [SerializeField] private TextMeshProUGUI _nameText;
         [SerializeField] private Button _toViewButton;
 
-        // private void Awake() => 
-        //     _toViewButton.onClick.AddListener(ToViewScreen);
+        private void Awake() =>
+            _toViewButton.onClick.AddListener(ToViewScreen);
 
         private void ToViewScreen() =>
-            SceneManager.LoadSceneAsync(Constants.ViewScene);
+            SceneManager.LoadSceneAsync(ScreenType.View.ToString());
 
         public void Construct(Texture2D icon, string name)
         {
