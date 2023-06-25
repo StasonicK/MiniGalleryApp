@@ -584,7 +584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 8335615656558213324}
   _percentsText: {fileID: 2069817769}
-  _loadingTime: 2
+  _loadingTime: 1
 --- !u!1 &8335615657329139037
 GameObject:
   m_ObjectHideFlags: 0

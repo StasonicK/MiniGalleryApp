@@ -39,11 +39,11 @@ namespace CodeBase.Screens.Gallery
             _isDownloading = true;
             string imageUrl = $"{Constants.URL}{number}{Constants.JpgFormat}";
             _loadedImageItemsCount++;
-            StartCoroutine(DownloadImages(imageUrl, number.ToString()));
+            StartCoroutine(CoroutineDownloadImage(imageUrl, number.ToString()));
             _isDownloading = false;
         }
 
-        private IEnumerator DownloadImages(string url, string name)
+        private IEnumerator CoroutineDownloadImage(string url, string name)
         {
             UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
             yield return request.SendWebRequest();
@@ -51,7 +51,7 @@ namespace CodeBase.Screens.Gallery
             if (request.result == UnityWebRequest.Result.Success)
             {
                 Texture2D texture2D = DownloadHandlerTexture.GetContent(request);
-                CreateImageItem(texture2D, name);
+                CreateImageItem(texture2D, name, url);
             }
             else
             {
@@ -59,10 +59,10 @@ namespace CodeBase.Screens.Gallery
             }
         }
 
-        private void CreateImageItem(Texture2D texture2D, string name)
+        private void CreateImageItem(Texture2D texture2D, string name, string url)
         {
             ImageItem imageItem = Instantiate(_imageItemPrefab, _imagesContainer);
-            imageItem.Construct(texture2D, name);
+            imageItem.Construct(texture2D, name, url);
         }
 
         public void OnScrollChanged()
