@@ -10,13 +10,13 @@ namespace CodeBase.Screens.Gallery
         [SerializeField] private ScrollRect _scrollRect;
         [SerializeField] private RectTransform _imagesContainer;
         [SerializeField] private ImageItem _imageItemPrefab;
-        [SerializeField] private float _bottomThreshold = 0.1f;
+        [SerializeField] private float _bottomThreshold = 0.2f;
 
         private const int InitialDataLength = 25;
         private const int DataLength = 66;
 
         private int _loadedImageItemsCount = 0;
-        private bool _isLoadingImageItems;
+        private bool _isDownloading;
 
         private void Awake()
         {
@@ -31,9 +31,12 @@ namespace CodeBase.Screens.Gallery
 
         private void DownloadImage(int number)
         {
+            _isDownloading = true;
             string imageUrl = $"{Constants.URL}{number}{Constants.JpgFormat}";
+            _loadedImageItemsCount++;
             StartCoroutine(DownloadImages(imageUrl, number.ToString()));
             Debug.Log(imageUrl);
+            _isDownloading = false;
         }
 
         private IEnumerator DownloadImages(string url, string name)
@@ -45,7 +48,6 @@ namespace CodeBase.Screens.Gallery
             {
                 Texture2D texture2D = DownloadHandlerTexture.GetContent(request);
                 CreateImageItem(texture2D, name);
-                _loadedImageItemsCount++;
             }
             else
             {
@@ -61,11 +63,11 @@ namespace CodeBase.Screens.Gallery
 
         public void OnScrollChanged()
         {
-            if (!_isLoadingImageItems && _scrollRect.verticalNormalizedPosition <= _bottomThreshold &&
+            if (!_isDownloading && _scrollRect.verticalNormalizedPosition <= _bottomThreshold &&
                 _loadedImageItemsCount < DataLength)
             {
                 for (int i = 1; i <= 3; i++)
-                    DownloadImage(_loadedImageItemsCount + i);
+                    DownloadImage(_loadedImageItemsCount + 1);
             }
         }
     }
