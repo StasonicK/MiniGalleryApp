@@ -6,7 +6,63 @@ namespace CodeBase.Common
     {
         [SerializeField] private Orientation ScreenOrientation;
 
+        private Orientation _currentOrientation;
+
+        private void Awake()
+        {
+            GetCurrentOrientation();
+        }
+
+        private void GetCurrentOrientation()
+        {
+            switch (Input.deviceOrientation)
+            {
+                case DeviceOrientation.Portrait:
+                    _currentOrientation = Orientation.PortraitFixed;
+                    break;
+                case DeviceOrientation.PortraitUpsideDown:
+                    _currentOrientation = Orientation.Portrait;
+                    break;
+                case DeviceOrientation.LandscapeLeft:
+                    _currentOrientation = Orientation.LandscapeFixed;
+                    break;
+                case DeviceOrientation.LandscapeRight:
+                    _currentOrientation = Orientation.Landscape;
+                    break;
+            }
+        }
+
         private void Start()
+        {
+            SetOrientationRules();
+
+            if (_currentOrientation != ScreenOrientation)
+                ChangeOrientation();
+
+            Destroy(gameObject);
+        }
+
+        private void ChangeOrientation()
+        {
+            switch (ScreenOrientation)
+            {
+                case Orientation.Any: break;
+                case Orientation.LandscapeFixed:
+                    Screen.orientation = UnityEngine.ScreenOrientation.LandscapeLeft;
+                    break;
+                case Orientation.Landscape:
+                    Screen.orientation = UnityEngine.ScreenOrientation.LandscapeLeft;
+                    break;
+                case Orientation.PortraitFixed:
+                    Screen.orientation = UnityEngine.ScreenOrientation.Portrait;
+                    break;
+                case Orientation.Portrait:
+                    Screen.orientation = UnityEngine.ScreenOrientation.Portrait;
+                    break;
+            }
+        }
+
+        private void SetOrientationRules()
         {
             switch (ScreenOrientation)
             {
@@ -44,8 +100,6 @@ namespace CodeBase.Common
                     Screen.orientation = UnityEngine.ScreenOrientation.LandscapeLeft;
                     break;
             }
-
-            Destroy(gameObject);
         }
 
         private enum Orientation

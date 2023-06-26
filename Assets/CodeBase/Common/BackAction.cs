@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -13,15 +12,8 @@ namespace CodeBase.Common
 
         private void Awake()
         {
-            if (Application.platform == RuntimePlatform.Android || Application.isEditor)
-            {
-                _swipeDetector.TurnOn();
+            if (Application.platform != RuntimePlatform.Android || Application.isEditor)
                 _swipeDetector.SwipedLeft += Back;
-            }
-            else
-            {
-                _swipeDetector.TurnOff();
-            }
 
             _backButton.onClick.AddListener(Back);
         }
