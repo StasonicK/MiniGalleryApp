@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,21 +15,21 @@ namespace CodeBase.Common
         {
             if (Application.platform == RuntimePlatform.Android || Application.isEditor)
             {
-                if (_swipeDetector != null)
-                {
-                    _swipeDetector.TurnOn();
-                    _swipeDetector.SwipedLeft += Back;
-                }
-
-                _backButton.onClick.AddListener(Back);
+                _swipeDetector.TurnOn();
+                _swipeDetector.SwipedLeft += Back;
             }
             else
             {
-                if (_swipeDetector != null)
-                    _swipeDetector.TurnOff();
-
-                _backButton.gameObject.SetActive(false);
+                _swipeDetector.TurnOff();
             }
+
+            _backButton.onClick.AddListener(Back);
+        }
+
+        private void Update()
+        {
+            if (Application.platform == RuntimePlatform.Android && Input.GetKey(KeyCode.Escape))
+                Back();
         }
 
         private void Back() =>
