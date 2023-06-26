@@ -1,11 +1,11 @@
 ﻿using System.Collections;
-using CodeBase.Screens.Common;
+using CodeBase.Common;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace CodeBase.Screens.View
+namespace CodeBase.View
 {
     public class ViewScreen : MonoBehaviour
     {

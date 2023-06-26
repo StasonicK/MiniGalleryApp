@@ -622,7 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1005,6 +1005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 7009231845905091389, guid: 3673fdecd2a219a4fa5a8dbbb2c16943, type: 3}
+      propertyPath: _swipeDetector
+      value: 
+      objectReference: {fileID: 7009231846657267060}
     - target: {fileID: 7009231845905091390, guid: 3673fdecd2a219a4fa5a8dbbb2c16943, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1089,8 +1093,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7009231845905091391, guid: 3673fdecd2a219a4fa5a8dbbb2c16943, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3673fdecd2a219a4fa5a8dbbb2c16943, type: 3}
+--- !u!1 &7009231846657267059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7009231845905091385, guid: 3673fdecd2a219a4fa5a8dbbb2c16943, type: 3}
+  m_PrefabInstance: {fileID: 7009231846657267058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7009231846657267060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7009231846657267059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa47e37ed91428bb094ee0f6c66675b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeThreshold: 100
 --- !u!1001 &8335615657937584622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1104,6 +1130,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8335615656359840971, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335615657096724534, guid: d030a47e695e0254e89449830722e4a8, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724536, guid: d030a47e695e0254e89449830722e4a8, type: 3}
@@ -1124,27 +1154,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724537, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724537, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724537, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724537, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724537, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1080
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724537, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1728
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724537, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1180,7 +1210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724537, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8335615657096724537, guid: d030a47e695e0254e89449830722e4a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

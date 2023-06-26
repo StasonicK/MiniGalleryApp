@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Screens.Common
+﻿namespace CodeBase.Common
 {
     public enum ScreenType
     {

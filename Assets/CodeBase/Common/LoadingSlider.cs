@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CodeBase.Screens.Common
+namespace CodeBase.Common
 {
     public class LoadingSlider : MonoBehaviour
     {

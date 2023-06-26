@@ -1,9 +1,9 @@
-using CodeBase.Screens.Common;
+using CodeBase.Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace CodeBase.Screens.Menu
+namespace CodeBase.Menu
 {
     public class MenuScreen : MonoBehaviour
     {

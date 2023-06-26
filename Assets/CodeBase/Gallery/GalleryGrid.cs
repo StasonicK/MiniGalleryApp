@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace CodeBase.Screens.Gallery
+namespace CodeBase.Gallery
 {
     public class GalleryGrid : MonoBehaviour
     {

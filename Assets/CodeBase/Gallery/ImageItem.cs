@@ -1,10 +1,10 @@
-﻿using CodeBase.Screens.Common;
+﻿using CodeBase.Common;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace CodeBase.Screens.Gallery
+namespace CodeBase.Gallery
 {
     public class ImageItem : MonoBehaviour
     {
