@@ -4,16 +4,7 @@ namespace CodeBase.Common
 {
     public class OrientationSetter : MonoBehaviour
     {
-        public enum Orientation
-        {
-            Any,
-            Portrait,
-            PortraitFixed,
-            Landscape,
-            LandscapeFixed
-        }
-
-        public Orientation ScreenOrientation;
+        [SerializeField] private Orientation ScreenOrientation;
 
         private void Start()
         {
@@ -55,6 +46,15 @@ namespace CodeBase.Common
             }
 
             Destroy(gameObject);
+        }
+
+        private enum Orientation
+        {
+            Any,
+            Portrait,
+            PortraitFixed,
+            Landscape,
+            LandscapeFixed
         }
     }
 }

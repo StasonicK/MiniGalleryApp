@@ -511,6 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1108175646}
   - component: {fileID: 1108175647}
+  - component: {fileID: 1108175648}
   m_Layer: 5
   m_Name: Main
   m_TagString: Untagged
@@ -548,6 +549,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108175645}
   m_CullTransparentMesh: 1
+--- !u!114 &1108175648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108175645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4c6167ed6fb3e4c9880f2fb9894ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toGalleryButton: {fileID: 1667395224}
 --- !u!1 &1667395222
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +574,6 @@ GameObject:
   - component: {fileID: 1667395226}
   - component: {fileID: 1667395225}
   - component: {fileID: 1667395224}
-  - component: {fileID: 1667395227}
   m_Layer: 5
   m_Name: GalleryButton
   m_TagString: Untagged
@@ -671,21 +684,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667395222}
   m_CullTransparentMesh: 1
---- !u!114 &1667395227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667395222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a8a902a1364eba8ae31011e9c00c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _backButton: {fileID: 1667395224}
-  screenType: 2
-  _swipeDetector: {fileID: 0}
 --- !u!1 &1748765971
 GameObject:
   m_ObjectHideFlags: 0
